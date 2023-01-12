@@ -6,8 +6,7 @@ package com.rohit.app;
  */
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
         Greeting greeting = new Greeting();
         String a = greeting.sayWelcome();
         System.out.println(a);
