@@ -4,10 +4,16 @@ package com.rohit.app;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Greeting greeting = new Greeting();
+        String a = greeting.sayWelcome();
+        System.out.println(a);
+        String b = greeting.sayHello();
+        System.out.println(b);
+        String c = greeting.sayBye();
+        System.out.println(c);
     }
 }
