@@ -1,7 +1,5 @@
 package com.rohit.app;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +14,7 @@ public class AppTest {
      * @param testName name of the test case
      */
     @Test
-    public void testsayWelcome() {
+    public void testSayWelcome() {
         String expectedResult = "welcome from greeting";
         Greeting g = new Greeting();
         String res = g.sayWelcome();
@@ -24,7 +22,7 @@ public class AppTest {
     }
 
     @Test
-    public void testsayHello() {
+    public void testSayHello() {
         String expectedResult = "hello from greeting";
         Greeting h = new Greeting();
         String res = h.sayHello();
@@ -32,7 +30,7 @@ public class AppTest {
     }
 
     @Test
-    public void testsayBye() {
+    public void testSayBye() {
         String expectedResult = "bye from greeting";
         Greeting i = new Greeting();
         String res = i.sayBye();
