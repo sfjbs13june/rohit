@@ -1,15 +1,13 @@
 package com.rohit.app.model;
 
-public class Appointment
-{
+public class Appointment {
     String appointmentId;
     String patientName;
     String doctorName;
     String date;
     Prescription prescription;
 
-    public Appointment()
-    {
+    public Appointment() {
     }
 
     public Appointment(String appointmentId, String patientName, String doctorName, String date) {
@@ -18,6 +16,7 @@ public class Appointment
         this.doctorName = doctorName;
         this.date = date;
     }
+
     public String getAppointmentId() {
         return appointmentId;
     }
@@ -49,4 +48,5 @@ public class Appointment
     public void setDate(String date) {
         this.date = date;
     }
+
 }

@@ -1,0 +1,9 @@
+1. docker login --> for connecting to docker hub
+2. docker images --> images
+3. docker ps ---> running container
+4. docker stop <imageID>
+5. docker rmi <imageID>
+6. docker exec -ti <container-id> /bin/sh
+7. docker pull <Repo>:<tag>
+8. docker run <Repository>:<tag>
+9. docker run <Repository>:<run>

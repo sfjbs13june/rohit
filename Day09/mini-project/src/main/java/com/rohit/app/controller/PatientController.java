@@ -1,6 +1,7 @@
 package com.rohit.app.controller;
 
 import com.rohit.app.model.Appointment;
+import com.rohit.app.model.Prescription;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,10 +15,7 @@ public class PatientController {
     public List<Appointment> getMyAppointments(@RequestParam String patientName) {
         List Ap = new ArrayList();
         Appointment ap1 = new Appointment("102","Rahul","Dr. Rajesh","25-01-2023");
-        Appointment ap2 = new Appointment("104","Rohan","Dr. Deepak","25-01-2023");
-
         Ap.add(ap1);
-        Ap.add(ap2);
         return Ap;
     }
 
@@ -28,14 +26,11 @@ public class PatientController {
     }
 
     @GetMapping("/map/patient")
-    public Map mapDoctor()
+    public Map mapPatient()
     {
-        Map mapDoctor = new HashMap();
-        Appointment A1 = new Appointment("102","Rahul","Dr. Rajesh","25-01-2023");
-        Appointment A2 = new Appointment("104","Rohan","Dr. Deepak","25-01-2023");
-
-        mapDoctor.put(A1.getPatientName(),A1);
-        mapDoctor.put(A2.getPatientName(),A2);
-        return mapDoctor;
+        Map mapPatient = new HashMap();
+        Prescription P1 = new Prescription("101","102","cold and fever","Rahul","Dr. Rajesh");
+        mapPatient.put(P1.getPatientName(),P1);
+        return mapPatient;
     }
 }
