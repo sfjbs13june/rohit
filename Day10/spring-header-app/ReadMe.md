@@ -44,7 +44,7 @@ $ docker-compose up
 $ docker-compose down
 ```
 
-## Start app With Docker-compose in back groud mode
+## Start app With Docker-compose in background mode
 
 ```
 $ docker-compose up -d

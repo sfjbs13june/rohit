@@ -1,4 +1,4 @@
-package com.rama.app;
+package com.rohit.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

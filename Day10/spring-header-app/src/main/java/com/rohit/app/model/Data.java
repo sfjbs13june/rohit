@@ -1,4 +1,4 @@
-package com.rama.app.model;
+package com.rohit.app.model;
 
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
-package com.rama.app.controller;
+package com.rohit.app.controller;
 
-import com.rama.app.model.Data;
+import com.rohit.app.model.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

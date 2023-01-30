@@ -1,4 +1,4 @@
-package com.rama.app.config;
+package com.rohit.app.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
