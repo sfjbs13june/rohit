@@ -1,5 +1,5 @@
 ## Import project
-Import the project on either eclipse or inellij as a maven import project
+Import the project on either eclipse or intellij as a maven import project
 
 ## Building
 

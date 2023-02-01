@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class Hospital
 {
     @Id
-    @GeneratedValue
     @Column(name="id")
     private String id;
 
