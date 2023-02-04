@@ -3,15 +3,12 @@ package com.rohit.app.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,property = "@id",scope = com.rohit.app.model.Hospital.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,property = "@id",scope = Hospital.class)
 public class Hospital {
     String id;
     String name;
     String city;
 
-    public Hospital()
-    {
-    }
     public Hospital(String id, String name, String city) {
         this.id = id;
         this.name = name;

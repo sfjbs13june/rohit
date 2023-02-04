@@ -4,7 +4,6 @@ import com.rohit.app.model.Hospital;
 import com.rohit.app.model.Patient;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -13,31 +12,33 @@ public class RabbitMQConsumer {
 
   /*
   If you are using boot, you can simply add a Jackson2JsonMessageConverter
-  @Bean to the configuration, and it will be automatically wired into the listener (
+  @Bean to the configuration and it will be automatically wired into the listener (
    */
-
-  @Value("${app.queue.name}")
+ /* @Value("${rabbitmq.queue.name}")
   String queueName;
 
-  @Value("${app.exchange.name}")
+  @Value("${rabbitmq.exchange.name}")
   String exchange;
 
-  @Value("${app.routingkey.name}")
-  private String routingkey;
-
+  @Value("${rabbitmq.routingkey.name}")
+  private String routingkey;*/
   @Bean
-  public Jackson2JsonMessageConverter Converter() {
+  public Jackson2JsonMessageConverter converter() {
     return new Jackson2JsonMessageConverter();
   }
 
-  @RabbitListener(queues = "${app.queue.name}")
+  /*public void send(Employee company) {
+    rabbitTemplate.convertAndSend(exchange, routingkey, company);
+    System.out.println("Send msg = " + company);
+
+  }*/
+  @RabbitListener(queues = "${rabbitmq.queue.name}")
   public void recievedMessage(Hospital hospital) {
     System.out.println("Recieved Message From RabbitMQ: " + hospital);
   }
-
-  @RabbitListener(queues = "${app.queue.name}")
+  @RabbitListener(queues = "${rabbitmq.queue.name}")
   public void receivedMessageP(Patient patient)
   {
-    System.out.println("Received Message From RabbitMQ: ");
+    System.out.println("Received Message From RabbitMQ: "+ patient);
   }
 }

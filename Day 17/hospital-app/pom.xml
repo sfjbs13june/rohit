@@ -14,10 +14,6 @@
     <packaging>pom</packaging>
     <name>hospital-app</name>
 	<description>hospital application for management</description>
-    <modules>
-        <module>rabbit-mq-hospital-app-consumer</module>
-		<module>rabbit-mq-hospital-app-producer</module>
-    </modules>
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -29,7 +25,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
-
+	<modules>
+		<module>rabbit-mq-hospital-app-consumer</module>
+		<module>rabbit-mq-hospital-app-producer</module>
+	</modules>
 	<build>
 		<plugins>
 			<plugin>
