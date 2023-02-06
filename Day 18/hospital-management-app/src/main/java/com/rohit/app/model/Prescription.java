@@ -2,11 +2,16 @@ package com.rohit.app.model;
 
 public class Prescription
 {
-    String prescriptionId;
-    String appointmentId;
-    String description;
-    String patientName;
-    String doctorName;
+    private String prescriptionId;
+    private String appointmentId;
+    private String description;
+    private String patientName;
+    private String doctorName;
+
+    public Prescription()
+    {
+    }
+
     public Prescription(String prescriptionId, String appointmentId, String description, String patientName, String doctorName) {
         this.prescriptionId = prescriptionId;
         this.appointmentId = appointmentId;

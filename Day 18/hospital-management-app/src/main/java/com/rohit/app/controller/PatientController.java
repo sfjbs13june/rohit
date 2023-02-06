@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/doctor")
-public class DoctorController
+@RequestMapping("/patient")
+public class PatientController
 {
     @Autowired
-    AppointmentRepository apprepository;
-    @RequestMapping(value = "/doctorappointment",method = RequestMethod.GET)
-    public Appointment getAppointments(@RequestParam("doctorName") String doctorName)
+    AppointmentRepository appointmentRepository;
+    @RequestMapping(value = "/myappointment",method = RequestMethod.GET)
+    public Appointment getMyAppointments(@RequestParam("patientName") String patientName)
     {
-        return apprepository.findBydoctorName(doctorName);
+        return appointmentRepository.findByPatientName(patientName);
     }
 
     @RequestMapping(value = "/Save",method = RequestMethod.POST)
     public Appointment saveAppointment(@RequestBody Appointment appointment)
     {
-        appointment = apprepository.save(appointment);
+        appointment = appointmentRepository.save(appointment);
         return appointment;
     }
 }
