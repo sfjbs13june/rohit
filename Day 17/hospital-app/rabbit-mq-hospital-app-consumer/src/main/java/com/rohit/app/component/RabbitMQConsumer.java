@@ -16,28 +16,27 @@ public class RabbitMQConsumer {
   @Bean to the configuration, and it will be automatically wired into the listener (
    */
 
-  @Value("${app.queue.name}")
+  @Value("${rabbitmq.queue.name}")
   String queueName;
 
-  @Value("${app.exchange.name}")
+  @Value("${rabbitmq.exchange.name}")
   String exchange;
 
-  @Value("${app.routingkey.name}")
+  @Value("${rabbitmq.routingkey.name}")
   private String routingkey;
-
   @Bean
-  public Jackson2JsonMessageConverter Converter() {
+  public Jackson2JsonMessageConverter converter() {
     return new Jackson2JsonMessageConverter();
   }
 
-  @RabbitListener(queues = "${app.queue.name}")
+  @RabbitListener(queues = "${rabbitmq.queue.name}")
   public void recievedMessage(Hospital hospital) {
     System.out.println("Recieved Message From RabbitMQ: " + hospital);
   }
 
-  @RabbitListener(queues = "${app.queue.name}")
+  @RabbitListener(queues = "${rabbitmq.queue.name}")
   public void receivedMessageP(Patient patient)
   {
-    System.out.println("Received Message From RabbitMQ: ");
+    System.out.println("Received Message From RabbitMQ: " + patient);
   }
 }
