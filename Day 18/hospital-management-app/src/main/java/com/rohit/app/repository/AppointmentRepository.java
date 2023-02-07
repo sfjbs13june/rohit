@@ -10,5 +10,5 @@ import java.util.List;
 public interface AppointmentRepository extends MongoRepository<Appointment, String> {
     public Appointment save(Appointment ap);
     public List<Appointment> findBydoctorName(String doctorName);
-    public Appointment findByPatientName(String patientName);
+    public List<Appointment> findByPatientName(String patientName);
 }

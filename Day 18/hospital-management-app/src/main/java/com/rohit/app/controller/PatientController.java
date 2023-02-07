@@ -5,6 +5,8 @@ import com.rohit.app.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/patient")
 public class PatientController
@@ -12,7 +14,7 @@ public class PatientController
     @Autowired
     AppointmentRepository appointmentRepository;
     @RequestMapping(value = "/myappointment",method = RequestMethod.GET)
-    public Appointment getMyAppointments(@RequestParam("patientName") String patientName)
+    public List<Appointment> getMyAppointments(@RequestParam("patientName") String patientName)
     {
         return appointmentRepository.findByPatientName(patientName);
     }
