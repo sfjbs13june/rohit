@@ -59,5 +59,4 @@ public class Prescription
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
     }
-
 }

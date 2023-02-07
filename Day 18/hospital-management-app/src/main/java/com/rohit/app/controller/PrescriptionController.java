@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/prescription")
 public class PrescriptionController
@@ -15,9 +17,9 @@ public class PrescriptionController
     @Autowired
     PrescriptionRepository prescriptionRepository;
     @RequestMapping(value = "/viewprescription",method = RequestMethod.GET)
-    public Prescription getAllPrescriptions(String patientName)
+    public List<Prescription> getAllPrescriptions()
     {
-        return prescriptionRepository.viewAll(patientName);
+        return prescriptionRepository.findAll();
     }
 
     @RequestMapping(value = "/saveprescription",method = RequestMethod.POST)

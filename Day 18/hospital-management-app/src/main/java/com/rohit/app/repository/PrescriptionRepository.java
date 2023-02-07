@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface PrescriptionRepository extends MongoRepository<Prescription, String>
 {
     public Prescription save(Prescription prescription);
-    public Prescription viewAll(String patientName);
 }
