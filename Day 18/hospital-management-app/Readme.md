@@ -72,6 +72,17 @@ curl --location --request POST 'localhost:8080/prescription/saveprescription' \
 curl --location --request GET 'localhost:8080/prescription/viewprescription'
 ```
 
+# Security
+```
+   (HttpMethod.POST,"/doctor/save").hasAnyRole("user")
+   (HttpMethod.GET,"/doctor/doctorappointment").hasAnyRole("user")
+   (HttpMethod.POST,"/patient/Save").hasAnyRole("user")
+   (HttpMethod.GET,"/patient/myappointment").hasAnyRole("user")
+   (HttpMethod.POST,"/prescription/saveprescription").hasAnyRole("user")
+   (HttpMethod.GET,"/prescription/viewprescription").hasAnyRole("user")
+   .antMatchers(AUTH_WHITE_LIST).permitAll()
+```
+
 # Show data
 
 ```
@@ -85,4 +96,9 @@ show tables
 
 db.Hospital-management-app.find()
 
+```
+
+# Swagger Page:
+```
+http://localhost:8080/swagger-ui/index.html
 ```
