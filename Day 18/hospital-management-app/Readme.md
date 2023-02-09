@@ -21,7 +21,25 @@ curl --location --request POST 'localhost:8080/doctor/save'
 ```
 # GET
 ```
-curl --location --request GET 'localhost:8080/doctor/doctorappointment?doctorName=Dr.rajesh' 
+curl --location --request GET 'localhost:8080/doctor/doctorappointment?doctorName=Dr.pandey' \
+--header 'Authorization: Basic RG9jdG9yMTpwYXNzd29yZA==' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=0C8F246EB67AB66CBBBEA79079873C55' \
+--data-raw '{
+   "appointmentId" : "102",
+    "patientName":"Raman",
+    "doctorName":"Dr.pandey",
+    "date":"25thfeb",
+    "prescription":
+    { 
+        "prescriptionId":"pres13",
+        "appointmentId":"102",
+        "description":"He had diaria",
+        "patientName":"Raman",
+        "doctorName":"Dr.pandey"
+    }
+}'
+
 ```
 
 # PatientController

@@ -22,13 +22,13 @@ public class HospitalSecurity extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception
     {
         http.httpBasic().and().authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/doctor/save").hasAnyRole("user")
-                .antMatchers(HttpMethod.GET,"/doctor/doctorappointment").hasAnyRole("user")
-                .antMatchers(HttpMethod.POST,"/patient/Save").hasAnyRole("user")
-                .antMatchers(HttpMethod.GET,"/patient/myappointment").hasAnyRole("user")
-                .antMatchers(HttpMethod.POST,"/prescription/saveprescription").hasAnyRole("user")
-                .antMatchers(HttpMethod.GET,"/prescription/viewprescription").hasAnyRole("user")
-                .antMatchers(AUTH_WHITE_LIST).permitAll().and().csrf().disable().headers()
+                .antMatchers(HttpMethod.POST,"/doctor/save").hasAnyRole("DOCTOR")
+                .antMatchers(HttpMethod.GET,"/doctor/doctorappointment").hasAnyRole("DOCTOR")
+                .antMatchers(HttpMethod.POST,"/patient/Save").hasAnyRole("PATIENT")
+                .antMatchers(HttpMethod.GET,"/patient/myappointment").hasAnyRole("PATIENT")
+                .antMatchers(HttpMethod.POST,"/prescription/saveprescription").hasAnyRole("DOCTOR","PATIENT")
+                .antMatchers(HttpMethod.GET,"/prescription/viewprescription").hasAnyRole("DOCTOR","PATIENT")
+                .antMatchers(AUTH_WHITE_LIST).hasAnyRole("DOCTOR","PATIENT").and().csrf().disable().headers()
                 .frameOptions().disable();
     }
 
@@ -36,6 +36,9 @@ public class HospitalSecurity extends WebSecurityConfigurerAdapter
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
     {
-        auth.inMemoryAuthentication().withUser("user123").password("{noop}password").roles("user");
+        auth.inMemoryAuthentication().withUser("Doctor1").password("{noop}password").roles("DOCTOR").and()
+                //.withUser("Doctor2").password("{noop}password").roles("DOCTOR").and()
+                .withUser("Patient1").password("{noop}password")
+                .roles("PATIENT");//withUser("Patient2").password("{noop}password").roles("PATIENT");
     }
 }

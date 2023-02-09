@@ -1,7 +1,7 @@
 version: '3'
 services:
   mongo-app:
-    image: rohits1/mongo-spring-data:0.0.1-SNAPSHOT
+    image: rohits1/mongo-mini-project-data:0.0.1-SNAPSHOT
     ports:
       - "8083:8083"
     environment:
