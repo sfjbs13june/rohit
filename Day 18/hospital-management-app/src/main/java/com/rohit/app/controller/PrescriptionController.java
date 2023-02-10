@@ -17,7 +17,7 @@ public class PrescriptionController
     @Autowired
     PrescriptionRepository prescriptionRepository;
     @RequestMapping(value = "/viewprescription",method = RequestMethod.GET)
-    public List<Prescription> getAllPrescriptions()
+    public List<Prescription> getAllPrescriptions(String patientName)
     {
         return prescriptionRepository.findAll();
     }

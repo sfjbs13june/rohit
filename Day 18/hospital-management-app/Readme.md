@@ -17,11 +17,7 @@ docker-compose -f docker-compose-mongo.yml down
 
 # POST
 ```
-curl --location --request POST 'localhost:8080/doctor/save'
-```
-# GET
-```
-curl --location --request GET 'localhost:8080/doctor/doctorappointment?doctorName=Dr.pandey' \
+curl --location --request POST 'localhost:8080/doctor/save'\
 --header 'Authorization: Basic RG9jdG9yMTpwYXNzd29yZA==' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=0C8F246EB67AB66CBBBEA79079873C55' \
@@ -39,6 +35,10 @@ curl --location --request GET 'localhost:8080/doctor/doctorappointment?doctorNam
         "doctorName":"Dr.pandey"
     }
 }'
+```
+# GET
+```
+curl --location --request GET 'localhost:8080/doctor/doctorappointment?doctorName=Dr.pandey'
 
 ```
 
@@ -120,3 +120,4 @@ db.Hospital-management-app.find()
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
+
