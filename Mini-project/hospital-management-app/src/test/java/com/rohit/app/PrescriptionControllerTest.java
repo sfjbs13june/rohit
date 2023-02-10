@@ -23,11 +23,11 @@ import static org.mockito.Mockito.when;
 public class PrescriptionControllerTest
 {
     @InjectMocks
-    private PrescriptionController prescriptionController;
+    PrescriptionController prescriptionController;
     @Mock
-    private Prescription prescription;
+    Prescription prescription;
     @Mock
-    private PrescriptionRepository prescriptionRepository;
+    PrescriptionRepository prescriptionRepository;
 
     @BeforeEach
     public void setUp()
@@ -54,17 +54,18 @@ public class PrescriptionControllerTest
     }
 
     @Test
-    public void getPrescriptionDetailsTest() {
-        List<Prescription> p1 = new ArrayList();
+    public void getPrescriptionDetailsTest()
+    {
+        List<Prescription> prescriptions = new ArrayList();
         Prescription pres1 = new Prescription("pres013", "105", "fever", "Ram", "Dr.pandey");
-        p1.add(pres1);
-        when(prescriptionRepository.findByPatientName(anyString())).thenReturn(p1);
+        prescriptions.add(pres1);
+        when(prescriptionRepository.findAll()).thenReturn(prescriptions);
         List<Prescription> result = prescriptionController.getAllPrescriptions("Ram");
-        assertEquals(p1.size(), 1);
-        assertEquals(p1.get(0).getPrescriptionId(), result.get(0).getPrescriptionId());
-        assertEquals(p1.get(0).getAppointmentId(), result.get(0).getAppointmentId());
-        assertEquals(p1.get(0).getDescription(), result.get(0).getDescription());
-        assertEquals(p1.get(0).getPatientName(), result.get(0).getPatientName());
-        assertEquals(p1.get(0).getDoctorName(), result.get(0).getDoctorName());
+        assertEquals(prescriptions.size(), 1);
+        assertEquals(prescriptions.get(0).getPrescriptionId(), result.get(0).getPrescriptionId());
+        assertEquals(prescriptions.get(0).getAppointmentId(), result.get(0).getAppointmentId());
+        assertEquals(prescriptions.get(0).getDescription(), result.get(0).getDescription());
+        assertEquals(prescriptions.get(0).getPatientName(), result.get(0).getPatientName());
+        assertEquals(prescriptions.get(0).getDoctorName(), result.get(0).getDoctorName());
     }
 }
